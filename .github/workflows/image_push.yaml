@@ -1,0 +1,16 @@
+name: Docker IMAGE 
+
+on:
+  push
+
+jobs:
+  build_and_publish: 
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build and push Image 
+        run: |
+          docker login --maverick/1905 --password ${TEST_SECRET.GH_PAT}} ghcr.io
+          docker.build . --tag ghcr.io/maverick1905/docker_testing
+          docker push ghcr.io/maverick1905/docker_testing
+
