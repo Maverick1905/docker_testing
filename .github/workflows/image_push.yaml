@@ -1,8 +1,11 @@
 name: Docker IMAGE 
 
 on:
-  push
-
+  push:
+    branches: ['docker_testing']
+  pull_request: 
+    branches: ['docker_testing']
+      
 jobs:
   build_and_publish: 
     runs-on: ubuntu-latest
